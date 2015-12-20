@@ -31,7 +31,7 @@ add_action( 'template_redirect', __NAMESPACE__ . '\\redirect' );
  * Redirects search results from /?s=query to /search/query/, converts %20 to +.
  *
  * @link http://txfx.net/wordpress-plugins/nice-search/
- *
+ * @global \WP_Rewrite $wp_rewrite WordPress Rewrite Component.
  * @since 1.0.0
  */
 function redirect() {
@@ -53,7 +53,7 @@ add_filter( 'wpseo_json_ld_search_url', __NAMESPACE__ . '\\rewrite' );
 /**
  * Filter the WP SEO search URL.
  *
- * @param $url
+ * @param string $url Search URL passed by WPSEO.
  * @return mixed
  * @since 1.0.0
  */
@@ -62,7 +62,9 @@ function rewrite( $url ) {
 }
 
 /**
- * @param $wp_rewrite
+ * Check in case pretty permalinks are not enabled.
+ *
+ * @param \WP_Rewrite $wp_rewrite WordPress Rewrite Component.
  * @return bool
  * @since 1.0.0
  */
@@ -71,7 +73,9 @@ function no_rewrite_set( $wp_rewrite ) {
 }
 
 /**
- * @param $search_base
+ * Simple function to check if we're dealing with a search permalink.
+ *
+ * @param \WP_Rewrite $search_base Anything to be inserted before searches. Defaults to 'search/'.
  * @return bool
  * @since 1.0.0
  */
