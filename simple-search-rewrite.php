@@ -1,15 +1,28 @@
 <?php
-/*
-Plugin Name:        Simple Search Rewrite
-Plugin URI:         https://github.com/craigsimps/simple-search-rewrite/
-Description:        Redirects search results from /?s=query to /search/query/, converts %20 to +.
-Version:            1.0.0
-Author:             Craig Simpson <craig@designed2.co.uk>
-Author URI:         https://github.com/craigsimps/
-License:            GPLv3
-License URI:        http://opensource.org/licenses/GPL-3.0
-Text Domain:        simple-search-rewrite
-*/
+/**
+ * Simple Search Rewrite
+ *
+ * @package   Simple_Search_Rewrite
+ * @author    Craig Simpson
+ * @license   GPL-3.0+
+ * @link      https://github.com/craigsimps/simple-search-rewrite/
+ * @copyright 2015 Craig Simpson, Designed2
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Simple Search Rewrite
+ * Plugin URI:        https://github.com/craigsimps/simple-search-rewrite/
+ * Description:       Redirects search results from /?s=query to /search/query/, converts %20 to +.
+ * Version:           1.0.0
+ * Author:            Craig Simpson
+ * Author URI:        http://designed2.co.uk/
+ * Text Domain:       simple-search-rewrite
+ * License:           GPL-3.0+
+ * License URI:       http://opensource.org/licenses/GPL-3.0
+ * GitHub Plugin URI: https://github.com/craigsimps/simple-search-rewrite/
+ * GitHub Branch:     master
+ * Requires WP:       3.5
+ * Requires PHP:      5.3
+ */
 
 namespace D2\SimpleSearchRewrite;
 
@@ -63,5 +76,5 @@ function no_rewrite_set( $wp_rewrite ) {
  * @since 1.0.0
  */
 function is_search_permalink( $search_base ) {
-	return is_search() && ! is_admin() && strpos( $_SERVER['REQUEST_URI'], "/{$search_base}/" ) === false && strpos( $_SERVER['REQUEST_URI'], '&' ) === false;
+	return is_search() && ! is_admin() && strpos( filter_input( INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL ), "/{$search_base}/" ) === false && strpos( filter_input( INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL ), '&' ) === false;
 }
