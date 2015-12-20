@@ -1,12 +1,12 @@
 # Simple Search Rewrite
-Contributors: craigsimps
-Donate link: http://designed2.co.uk/
-Tags: search, rewrite, permalinks
-Requires at least: 3.5.0
-Tested up to: 4.4
-License: GPLv3
-License URI: http://opensource.org/licenses/GPL-3.0
-Stable tag: 1.0.0
+* Contributors: craigsimps
+* Donate link: http://designed2.co.uk/
+* Tags: search, rewrite, permalinks
+* Requires at least: 3.5.0
+* Tested up to: 4.4
+* License: GPLv3
+* License URI: http://opensource.org/licenses/GPL-3.0
+* Stable tag: 1.0.0
 
 Redirects search results from /?s=query to /search/query/, and converts %20 to +.
 
