@@ -16,6 +16,8 @@ This is a super-simple plugin which will turn WordPress' default `/?s=query%20te
 
 This is something which I have been placing into a theme include or in a core functionality plugin until recently, but it makes sense to separate this functionality out into an individual plugin so it can be switched on and off independently.
 
+The plugin has no administrative interface or control panel. Activation turns it on, deactivation turns it off. Once activated, performing a search using the standard WP search widget should give you a much nicer search URL.
+
 == Installation ==
 
 1. Install plugin.
