@@ -3,18 +3,18 @@
  * Simple Search Rewrite
  *
  * @package   Simple_Search_Rewrite
- * @author    Craig Simpson
+ * @author    Craig Simpson <craig@craigsimpson.scot>
  * @license   GPL-3.0+
  * @link      https://github.com/craigsimps/simple-search-rewrite/
- * @copyright 2015 Craig Simpson, Designed2
+ * @copyright 2015 Craig Simpson
  *
  * @wordpress-plugin
  * Plugin Name:       Simple Search Rewrite
  * Plugin URI:        https://github.com/craigsimps/simple-search-rewrite/
  * Description:       Redirects search results from /?s=query to /search/query/, converts %20 to +.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Craig Simpson
- * Author URI:        http://designed2.co.uk/
+ * Author URI:        https://craigsimpson.scot/
  * Text Domain:       simple-search-rewrite
  * License:           GPL-3.0+
  * License URI:       http://opensource.org/licenses/GPL-3.0
@@ -24,7 +24,7 @@
  * Requires PHP:      5.3
  */
 
-namespace D2\SimpleSearchRewrite;
+namespace SimpleSearchRewrite;
 
 add_action( 'template_redirect', __NAMESPACE__ . '\\redirect' );
 /**
@@ -43,7 +43,7 @@ function redirect() {
 
 	$search_base = $wp_rewrite->search_base;
 	if ( is_search_permalink( $search_base ) ) {
-		wp_redirect( get_search_link() );
+		wp_safe_redirect( get_search_link() );
 		exit();
 	}
 }

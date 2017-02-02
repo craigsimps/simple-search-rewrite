@@ -1,12 +1,12 @@
 # Simple Search Rewrite
 * Contributors: craigsimps
-* Donate link: http://designed2.co.uk/
+* Donate link: https://craigsimpson.scot
 * Tags: search, rewrite, permalinks
 * Requires at least: 3.5.0
-* Tested up to: 4.4
+* Tested up to: 4.7.2
 * License: GPLv3
 * License URI: http://opensource.org/licenses/GPL-3.0
-* Stable tag: 1.0.0
+* Stable tag: 1.0.1
 
 Redirects search results from /?s=query to /search/query/, and converts %20 to +.
 
@@ -25,5 +25,9 @@ The plugin has no administrative interface or control panel. Activation turns it
 
 ## Changelog
 
-### 1.0
+= 1.0.1 =
+* Switch from using `wp_redirect` to `wp_safe_redirect`.
+* Update author information and tested up to value.
+
+= 1.0 =
 * Initial Commit.
